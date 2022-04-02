@@ -26,6 +26,9 @@ function App() {
   }
 
   let [따봉, 따봉변경] = useState(0);
+  // let [modal, modal변경] = useState(false);
+
+  let [modal, setmodal] = useState(false);
 
   return (
     <div className="App">
@@ -58,12 +61,29 @@ function App() {
         <hr />
       </div>
       <div className="list">
-        <h3> {글제목[2]} </h3>
+        {/* if대신 삼항연산자 */}
+        <h3
+        // onClick={() => {
+        //   modal변경(!modal);
+        // }}
+        >
+          {글제목[2]}
+        </h3>
         <p> 2월 17일 발행 </p>
         <hr />
       </div>
 
-      <Modal 글제목={글제목} />
+      {/* {modal === true ? <Modal 글제목={글제목} /> : null} */}
+
+      <button
+        onClick={() => {
+          setmodal(!modal);
+        }}
+      >
+        버튼
+      </button>
+
+      {modal === true ? <Modal 글제목={글제목} /> : null}
     </div>
   );
 }
