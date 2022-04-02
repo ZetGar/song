@@ -12,6 +12,18 @@ function App() {
     "축구는 왜 하니",
   ]);
 
+  function 제목바꾸기() {
+    // 글제목변경(["여자 코트 추천", "강남 우동 맛집", "축구는 왜 하니"]);
+    var newArray = [...글제목];
+    newArray[0] = "여자 코트 추천";
+    글제목변경(newArray);
+
+    // 버튼 눌렀을 때 순서 변경
+    // var newArray = [...글제목];
+    // newArray = ["강남 우동 맛집", "여자 코트 추천", "축구는 왜 하니"];
+    // 글제목변경(newArray);
+  }
+
   let [따봉, 따봉변경] = useState(0);
 
   return (
@@ -22,13 +34,7 @@ function App() {
         {/* <div>{data}</div> */}
       </div>
 
-      <button
-        onClick={() => {
-          글제목변경(["여자 코트 추천", "강남 우동 맛집", "축구는 왜 하니"]);
-        }}
-      >
-        버튼
-      </button>
+      <button onClick={제목바꾸기}>버튼</button>
       <div className="list">
         <h3>
           {글제목[0]}{" "}
