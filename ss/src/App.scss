@@ -25,3 +25,26 @@ button {
   background-color: rgb(47, 74, 198);
   border: none;
 }
+
+.modal {
+  width: 100%;
+  padding: 5%;
+  margin-top: 50px;
+  box-sizing: border-box;
+  background-color: rgb(95, 79, 168);
+
+  > h2,
+  p {
+    color: #fff;
+    text-align: center;
+  }
+
+  > h2 {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+
+  > p {
+    font-size: 14px;
+  }
+}

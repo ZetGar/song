@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import "./App.scss";
+import Modal from "./components/Modal";
 
 function App() {
   // var data = "안녕하세요";
@@ -34,7 +35,8 @@ function App() {
         {/* <div>{data}</div> */}
       </div>
 
-      <button onClick={제목바꾸기}>버튼</button>
+      {/* <button onClick={제목바꾸기}>버튼</button> */}
+
       <div className="list">
         <h3>
           {글제목[0]}{" "}
@@ -60,6 +62,8 @@ function App() {
         <p> 2월 17일 발행 </p>
         <hr />
       </div>
+
+      <Modal 글제목={글제목} />
     </div>
   );
 }
