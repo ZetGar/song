@@ -28,16 +28,17 @@ function App() {
   }
 
   let [modal, setmodal] = useState(false);
+  let [누른제목, 누른제목변경] = useState(0);
 
-  // for반복문을 쓰고 싶다면?
-  function 반복된UI() {
-    var array = [];
-    for (var i = 0; i < 3; i++) {
-      array.push(<div>안녕</div>);
+  // // for반복문을 쓰고 싶다면?
+  // function 반복된UI() {
+  //   var array = [];
+  //   for (var i = 0; i < 3; i++) {
+  //     array.push(<div>안녕</div>);
 
-      return array;
-    }
-  }
+  //     return array;
+  //   }
+  // }
 
   // var array = [2, 3, 4];
 
@@ -56,18 +57,20 @@ function App() {
       {/* <button onClick={제목바꾸기}>버튼</button> */}
 
       {/* 반복문 쓰는 법 */}
-      {글제목.map(function (title, i) {
+      {글제목.map(function (글, i) {
         return (
           <div className="list" key={i}>
-            <h3>
-              {title}
+            <h3
+              onClick={() => {
+                누른제목변경(i);
+              }}
+            >
+              {글}
               <span
                 onClick={() => {
                   var newArray = [...따봉];
                   newArray[i]++;
                   따봉변경(newArray);
-
-                  console.log(따봉);
                 }}
               >
                 👍
@@ -80,7 +83,7 @@ function App() {
         );
       })}
 
-      {반복된UI()}
+      {/* {반복된UI()} */}
 
       {/* {modal === true ? <Modal 글제목={글제목} /> : null} */}
 
@@ -92,7 +95,7 @@ function App() {
         버튼
       </button>
 
-      {modal === true ? <Modal 글제목={글제목} /> : null}
+      {modal === true ? <Modal 글제목={글제목} 누른제목={누른제목} /> : null}
     </div>
   );
 }
