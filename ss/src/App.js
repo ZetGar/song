@@ -18,60 +18,69 @@ function App() {
     var newArray = [...글제목];
     newArray[0] = "여자 코트 추천";
     글제목변경(newArray);
-
-    // 버튼 눌렀을 때 순서 변경
-    // var newArray = [...글제목];
-    // newArray = ["강남 우동 맛집", "여자 코트 추천", "축구는 왜 하니"];
-    // 글제목변경(newArray);
   }
 
-  let [따봉, 따봉변경] = useState(0);
-  // let [modal, modal변경] = useState(false);
+  // let [따봉, 따봉변경] = useState(0);
+  let [따봉, 따봉변경] = useState([0, 0, 0]);
+  function 따봉바꾸기() {
+    var newArray = [...따봉];
+    따봉변경(newArray + 1);
+  }
 
   let [modal, setmodal] = useState(false);
+
+  // for반복문을 쓰고 싶다면?
+  function 반복된UI() {
+    var array = [];
+    for (var i = 0; i < 3; i++) {
+      array.push(<div>안녕</div>);
+
+      return array;
+    }
+  }
+
+  // var array = [2, 3, 4];
+
+  // var newarray = array.map(function (a) {
+  //   return a * 2;
+  // });
+  // console.log(array);
+  // console.log(newarray);
 
   return (
     <div className="App">
       <div className="black-nav">
         <h1>개발 blog</h1>
-        {/* <div>여기에 데이터바인딩?</div> */}
-        {/* <div>{data}</div> */}
       </div>
 
       {/* <button onClick={제목바꾸기}>버튼</button> */}
 
-      <div className="list">
-        <h3>
-          {글제목[0]}{" "}
-          <span
-            onClick={() => {
-              따봉변경(따봉 + 1);
-            }}
-          >
-            👍
-          </span>
-          {따봉}
-        </h3>
-        <p> 2월 17일 발행 </p>
-        <hr />
-      </div>
-      <div className="list">
-        <h3> {글제목[1]} </h3>
-        <p> 2월 17일 발행 </p>
-        <hr />
-      </div>
-      <div className="list">
-        {/* if대신 삼항연산자 */}
-        <h3
-        // onClick={() => {
-        //   modal변경(!modal);
-        // }}
-        >
-          {글제목[2]}
-        </h3>
-        <p> 2월 17일 발행 </p>
-        <hr />
-      </div>
+      {/* 반복문 쓰는 법 */}
+      {글제목.map(function (title, i) {
+        return (
+          <div className="list" key={i}>
+            <h3>
+              {title}
+              <span
+                onClick={() => {
+                  var newArray = [...따봉];
+                  newArray[i]++;
+                  따봉변경(newArray);
+
+                  console.log(따봉);
+                }}
+              >
+                👍
+              </span>
+              {따봉[i]}
+            </h3>
+            <p> 2월 17일 발행 </p>
+            <hr />
+          </div>
+        );
+      })}
+
+      {반복된UI()}
 
       {/* {modal === true ? <Modal 글제목={글제목} /> : null} */}
 
