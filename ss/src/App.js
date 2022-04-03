@@ -125,9 +125,36 @@ function App() {
       /> 
       onChange / onInput */}
 
+      <Profile />
+
       {modal === true ? <Modal 글제목={글제목} 누른제목={누른제목} /> : null}
     </div>
   );
 }
 
 export default App;
+
+// class: 변수/함수 보관하는 덩어리
+// constructor : class의 변수 / 초기값 저장할 때 씀
+
+class Profile extends React.Component {
+  constructor() {
+    super();
+    // state는 constructor 안에 작성
+    this.state = { name: "Kim", age: 30 };
+  }
+
+  changeName() {
+    this.setState({ name: "Park" });
+  }
+
+  render() {
+    return (
+      <div>
+        <h3>프로필입니다</h3>
+        <p>저는 {this.state.name} 입니다</p>
+        <button onClick={this.changeNeme.bind(this)}>버튼</button>
+      </div>
+    );
+  }
+}
