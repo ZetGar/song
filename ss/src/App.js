@@ -20,6 +20,12 @@ function App() {
     글제목변경(newArray);
   }
 
+  function 글올리기() {
+    var newArray = [...글제목];
+    newArray.unshift(입력값);
+    글제목변경(newArray);
+  }
+
   // let [따봉, 따봉변경] = useState(0);
   let [따봉, 따봉변경] = useState([0, 0, 0]);
   function 따봉바꾸기() {
@@ -29,6 +35,8 @@ function App() {
 
   let [modal, setmodal] = useState(false);
   let [누른제목, 누른제목변경] = useState(0);
+
+  let [입력값, 입력값변경] = useState("");
 
   // // for반복문을 쓰고 싶다면?
   // function 반복된UI() {
@@ -94,6 +102,28 @@ function App() {
       >
         버튼
       </button>
+
+      <div className="publish">
+        <input
+          onChange={(e) => {
+            입력값변경(e.target.value);
+          }}
+        />
+        <button
+          onClick={() => {
+            글올리기();
+          }}
+        >
+          전송
+        </button>
+      </div>
+      {/* {입력값}
+      <input
+        onChange={(e) => {
+          입력값변경(e.target.value);
+        }}
+      /> 
+      onChange / onInput */}
 
       {modal === true ? <Modal 글제목={글제목} 누른제목={누른제목} /> : null}
     </div>
