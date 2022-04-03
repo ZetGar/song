@@ -3,7 +3,8 @@ import "./App.scss";
 import Data from "./data.js";
 import List from "./component/List";
 
-import { Link, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+// import { Link, Route, Switch } from "react-router-dom";
 
 function App() {
   let [shoes, setshoes] = useState(Data);
@@ -42,30 +43,34 @@ function App() {
         </div>
       </nav>
 
-      <Route path="/">
-        <section className="background">
-          <h5>20% season Off</h5>
-          <p>
-            This is simple hero unit, a simple jumbotron style component for
-            calling extra attention to featured content or information.
-          </p>
-          <button type="button" class="btn btn-primary">
-            Primary
-          </button>
-        </section>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/">
+            <section className="background">
+              <h5>20% season Off</h5>
+              <p>
+                This is simple hero unit, a simple jumbotron style component for
+                calling extra attention to featured content or information.
+              </p>
+              <button type="button" class="btn btn-primary">
+                Primary
+              </button>
+            </section>
 
-        <div className="container">
-          <div className="row">
-            {shoes.map((a, i) => {
-              return <List shoes={shoes[i]} i={i} />;
-            })}
-          </div>
-        </div>
-      </Route>
+            <div className="container">
+              <div className="row">
+                {shoes.map((a, i) => {
+                  return <List shoes={shoes[i]} i={i} />;
+                })}
+              </div>
+            </div>
+          </Route>
 
-      <Route path="/detail">
-        <div>디테일페이지에요</div>
-      </Route>
+          <Route path="/detail">
+            <div>디테일페이지에요</div>
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
