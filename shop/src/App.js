@@ -3,6 +3,8 @@ import "./App.scss";
 import Data from "./data.js";
 import List from "./component/List";
 
+import { Link, Route, Swit } from "react-router-dom";
+
 function App() {
   let [shoes, setshoes] = useState(Data);
   return (
@@ -39,6 +41,7 @@ function App() {
           </div>
         </div>
       </nav>
+
       <section className="background">
         <h5>20% season Off</h5>
         <p>
@@ -49,6 +52,13 @@ function App() {
           Primary
         </button>
       </section>
+
+      <Route path="/">
+        <div>메인페이지에요</div>
+      </Route>
+      <Route path="/detail">
+        <div>디테일페이지에요</div>
+      </Route>
 
       <div className="container">
         <div className="row">
