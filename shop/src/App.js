@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.scss";
-import Data from "./data.js";
+import Data from "./contants/data";
 import List from "./component/List";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -42,37 +42,42 @@ function App() {
           </div>
         </div>
       </nav>
-
+      {/* 
       <BrowserRouter>
         <Routes>
-          <Route path="/">
-            <section className="background">
-              <h5>20% season Off</h5>
-              <p>
-                This is simple hero unit, a simple jumbotron style component for
-                calling extra attention to featured content or information.
-              </p>
-              <button type="button" class="btn btn-primary">
-                Primary
-              </button>
-            </section>
-
-            <div className="container">
-              <div className="row">
-                {shoes.map((a, i) => {
-                  return <List shoes={shoes[i]} i={i} />;
-                })}
-              </div>
-            </div>
-          </Route>
-
-          <Route path="/detail">
-            <div>디테일페이지에요</div>
-          </Route>
+          <Route path="/" element={<Home />} />
+          <Route path="/detail" element={<Detail />} />
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
     </div>
   );
 }
+
+// function Home() {
+//   return (
+//     <section className="background">
+//       <h5>20% season Off</h5>
+//       <p>
+//         This is simple hero unit, a simple jumbotron style component for calling
+//         extra attention to featured content or information.
+//       </p>
+//       <button type="button" class="btn btn-primary">
+//         Primary
+//       </button>
+
+//       <div className="container">
+//         <div className="row">
+//           {shoes.map((a, i) => {
+//             return <List shoes={shoes[i]} i={i} />;
+//           })}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
+// function Detail() {
+//   <div>디테일페이지에요</div>;
+// }
 
 export default App;
