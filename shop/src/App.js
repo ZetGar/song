@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.scss";
-import Data from "./contants/data";
-import List from "./component/List";
+import { Route, Routes } from "react-router-dom";
 
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Detail from "./pages/Detail";
+
 // import { Link, Route, Switch } from "react-router-dom";
 
 function App() {
-  let [shoes, setshoes] = useState(Data);
   return (
     <div className="App">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -42,42 +42,13 @@ function App() {
           </div>
         </div>
       </nav>
-      {/* 
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/detail" element={<Detail />} />
-        </Routes>
-      </BrowserRouter> */}
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/detail" element={<Detail />} />
+      </Routes>
     </div>
   );
 }
-
-// function Home() {
-//   return (
-//     <section className="background">
-//       <h5>20% season Off</h5>
-//       <p>
-//         This is simple hero unit, a simple jumbotron style component for calling
-//         extra attention to featured content or information.
-//       </p>
-//       <button type="button" class="btn btn-primary">
-//         Primary
-//       </button>
-
-//       <div className="container">
-//         <div className="row">
-//           {shoes.map((a, i) => {
-//             return <List shoes={shoes[i]} i={i} />;
-//           })}
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
-
-// function Detail() {
-//   <div>디테일페이지에요</div>;
-// }
 
 export default App;
