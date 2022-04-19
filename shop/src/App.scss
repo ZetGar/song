@@ -4,6 +4,12 @@
   color: #fff;
   text-align: center;
 }
+.btn {
+  font-size: 14px;
+  font-weight: 600;
+  color: #3e72bc;
+  background-color: #fff;
+}
 
 section {
   padding: 50px 20px;
@@ -21,16 +27,22 @@ section {
     font-size: 14px;
     margin-bottom: 30px;
   }
-  > .btn {
-    font-size: 14px;
-    font-weight: 600;
-    color: #3e72bc;
-    background-color: #fff;
-  }
 }
 
 .container {
   text-align: center;
+  > .row {
+    margin-top: 2rem;
+    > .col-md-4 {
+      > h4 {
+        margin-top: 1rem;
+      }
+      > .btn {
+        margin-right: 10px;
+        margin-bottom: 2rem;
+      }
+    }
+  }
 }
 
 img {

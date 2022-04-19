@@ -1,9 +1,10 @@
 import { useState } from "react";
 import Data from "./../contants/data";
-import List from "./../component/List";
+import HList from "./../component/HList";
 
 function Home() {
   let [shoes, setshoes] = useState(Data);
+
   return (
     <section className="background">
       <h5>20% season Off</h5>
@@ -18,7 +19,7 @@ function Home() {
       <div className="container">
         <div className="row">
           {shoes.map((a, i) => {
-            return <List shoes={shoes[i]} i={i} />;
+            return <HList shoes={shoes[i]} i={i} />;
           })}
         </div>
       </div>
