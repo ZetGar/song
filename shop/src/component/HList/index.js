@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 
 function List(props) {
   function pDetail(e) {
     window.location.href = "/detail";
   }
 
+  let id = props.shoes.id;
   return (
     <div
       className="col-md-4"

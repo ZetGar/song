@@ -10,6 +10,16 @@
   color: #3e72bc;
   background-color: #fff;
 }
+.my-alert2 {
+  width: 80%;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+  background-color: rgb(255, 222, 222);
+  > p {
+    margin: 0;
+  }
+}
 
 section {
   padding: 50px 20px;
@@ -34,6 +44,7 @@ section {
   > .row {
     margin-top: 2rem;
     > .col-md-4 {
+      text-align: center;
       > h4 {
         margin-top: 1rem;
       }
