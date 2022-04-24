@@ -2,6 +2,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import Inventory from "./../Inventory";
 
 function List(props) {
   // history 방문 기록등을 저장해놓은 object
@@ -12,6 +13,8 @@ function List(props) {
   let { id } = useParams();
   let [alert, alert변경] = useState(true);
   let [inputData, inputData변경] = useState("");
+
+  let [재고, 재고변경] = useState([10, 11, 12]);
 
   useEffect(() => {
     // axios 페이지 첫 로드-> ajax 요청할때 꼭 useEffect에 대괄호 잊지말것!!
@@ -61,7 +64,16 @@ function List(props) {
       <p>
         {props.shoes[id].content} & {props.shoes[id].price}원
       </p>
-      <button type="button" class="btn btn-primary">
+
+      <Inventory 재고={재고} />
+
+      <button
+        type="button"
+        class="btn btn-primary"
+        onClick={() => {
+          재고변경([9, 11, 12]);
+        }}
+      >
         주문하기
       </button>
       <button
