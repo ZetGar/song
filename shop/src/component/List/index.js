@@ -9,15 +9,24 @@ function List(props) {
   // useHistory가 계속 안되서 찾아본 다른 것
   let navigate = useNavigate();
   let { id } = useParams();
-  let [on, seton] = useState(true);
+  let [alert, alert변경] = useState(true);
+  let [inputData, inputData변경] = useState("");
 
   useEffect(() => {
-    console.log(111);
-
     // 2초후에 alert 창을 안보이게 해주세요
     let timer = setTimeout(() => {
-      SAlert == true ? <SAlert /> : (seton = false);
+      alert변경(false);
+      // 업데이트 될때도 실행이 됨 -> useEffect의 마지막에 대괄호 [] 안에 들어간 게 (특정 state) 재랜더링 될때만 실행되게 됨, 여러개 가능
+
+      // 조건 안에 아무것도 없으면? 공란이 변경될때만 useEffect 실행해달란 얘기 -> 영영 실행되지 않음 그냥 List 업데이트시 실행이 안됨 -> 일종의 트릭 List 등장시 한번 실행하고 끝남
     }, 2000);
+
+    console.log("안녕");
+
+    // setTImeout 이런거 쓸 때 주의점 -> 그냥 냅두면 2초 전에 뒤로가기 등 있으면 버그가 발생할 수 있어서 꼭꼭꼭 return으로 깨끗하게 제거하는 코드 필요함
+    return () => {
+      clearTimeout(timer);
+    };
 
     // 컴포넌트가 사라질 때 코드 실행
     // return ()=>{
@@ -25,12 +34,16 @@ function List(props) {
     // };
 
     // 여러개를 사용하고 싶다면 useEffect 여러개 만듦 (순서대로 실행)
-  });
+  }, []);
 
   return (
     <div className="col-md-4">
-      <SAlert />
-
+      {alert === true ? <SAlert /> : null}
+      <input
+        onChange={(e) => {
+          inputData변경(e.target.value);
+        }}
+      />
       <img
         src={
           "https://codingapple1.github.io/shop/shoes" +
@@ -49,7 +62,8 @@ function List(props) {
         type="button"
         class="btn btn-primary"
         onClick={() => {
-          navigate();
+          navigate("/");
+          // history.goBack();
         }}
       >
         뒤로가기

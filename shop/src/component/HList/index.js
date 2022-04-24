@@ -2,18 +2,12 @@ import { Link } from "react-router-dom";
 // import { useParams } from "react-router-dom";
 
 function List(props) {
-  function pDetail(e) {
-    window.location.href = "/detail";
-  }
+  // function pDetail(e) {
+  //   window.location.href = "/detail:id";
+  // }
 
-  let id = props.shoes.id;
   return (
-    <div
-      className="col-md-4"
-      onClick={() => {
-        pDetail();
-      }}
-    >
+    <div className="col-md-4">
       <img
         src={
           "https://codingapple1.github.io/shop/shoes" +
@@ -26,7 +20,11 @@ function List(props) {
         {props.shoes.content} & {props.shoes.price}원
       </p>
 
-      <Link to="/detail/:id" type="button" class="btn btn-primary">
+      <Link
+        to={"/detail/" + props.shoes.id}
+        type="button"
+        class="btn btn-primary"
+      >
         주문하기
       </Link>
     </div>
