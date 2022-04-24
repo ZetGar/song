@@ -43,6 +43,8 @@ section {
   text-align: center;
   > .row {
     margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
     > .col-md-4 {
       text-align: center;
       > h4 {
@@ -70,9 +72,12 @@ h4 {
 }
 
 .col-md-4 {
-  width: 100%;
+  width: calc(100% / 3 - 20px);
   margin: 0 auto;
   text-align: center;
+  @media (max-width: 767px) {
+    width: 100%;
+  }
 
   > h4 {
     margin-bottom: 10px;

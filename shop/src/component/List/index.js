@@ -1,4 +1,5 @@
 // import { useHistory } from "react-router-dom";
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -6,13 +7,16 @@ function List(props) {
   // history 방문 기록등을 저장해놓은 object
   // let history = useHistory();
 
-  // useHistory가 계속 안되서 찾아본 다른 것
+  // useHistory가 계속 안되서 찾아본 다른 것 route v6부터는 useHistory->useNavigate로 변경되서 사용된다고 함
   let navigate = useNavigate();
   let { id } = useParams();
   let [alert, alert변경] = useState(true);
   let [inputData, inputData변경] = useState("");
 
   useEffect(() => {
+    // axios 페이지 첫 로드-> ajax 요청할때 꼭 useEffect에 대괄호 잊지말것!!
+    // axios.get();
+
     // 2초후에 alert 창을 안보이게 해주세요
     let timer = setTimeout(() => {
       alert변경(false);
