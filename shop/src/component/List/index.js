@@ -39,11 +39,13 @@ function List(props) {
   return (
     <div className="col-md-4">
       {alert === true ? <SAlert /> : null}
-      <input
+
+      {/* <input
         onChange={(e) => {
           inputData변경(e.target.value);
         }}
-      />
+      /> */}
+
       <img
         src={
           "https://codingapple1.github.io/shop/shoes" +
