@@ -10,9 +10,12 @@ function List(props) {
 
   // useHistory가 계속 안되서 찾아본 다른 것 route v6부터는 useHistory->useNavigate로 변경되서 사용된다고 함
   let navigate = useNavigate();
+
   let { id } = useParams();
   let [alert, alert변경] = useState(true);
   let [inputData, inputData변경] = useState("");
+
+  // let 재고 = useContext(재고context);
 
   let [재고, 재고변경] = useState([10, 11, 12]);
 
@@ -65,7 +68,7 @@ function List(props) {
         {props.shoes[id].content} & {props.shoes[id].price}원
       </p>
 
-      <Inventory 재고={재고} />
+      {/* <Inventory 재고={재고} /> */}
 
       <button
         type="button"
@@ -86,6 +89,21 @@ function List(props) {
       >
         뒤로가기
       </button>
+
+      {/* 탭 만들기 */}
+      <button className="btn" eventKey="link0">
+        1
+      </button>
+      <button className="btn" eventKey="link1">
+        2
+      </button>
+      <button className="btn" eventKey="link2">
+        3
+      </button>
+
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
   );
 }
