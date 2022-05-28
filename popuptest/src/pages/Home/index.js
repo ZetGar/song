@@ -1,7 +1,15 @@
+import Card from "./../../component/Card";
+import { DATA } from "./../../data/";
+
 const Home = () => {
   return (
-    <div>
-      <p> 홈입니다. </p>
+    <div className="home">
+      <div className="main-bg"></div>
+      <div className="main-product">
+        {DATA.map((manu, i) => {
+          return <Card DATA={DATA[i]} i={i} />;
+        })}
+      </div>
     </div>
   );
 };

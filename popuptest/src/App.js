@@ -33,14 +33,6 @@ function App() {
 
             <Nav.Link
               onClick={() => {
-                navigate("/detail");
-              }}
-            >
-              detail
-            </Nav.Link>
-
-            <Nav.Link
-              onClick={() => {
                 navigate("/About");
               }}
             >
@@ -55,7 +47,7 @@ function App() {
       <Routes>
         <Route path="*" element={<Error />} />
         <Route path="/" element={<Home />} />
-        <Route path="/detail" element={<Detail />} />
+        <Route path="/detail/:id" element={<Detail />} />
 
         {/* nested routes + outlet */}
         <Route path="/about" element={<About />}>
@@ -63,8 +55,6 @@ function App() {
           <Route path="location" element={<div>위치정보임</div>} />
         </Route>
       </Routes>
-
-      <div className="main-bg"></div>
     </div>
   );
 }
