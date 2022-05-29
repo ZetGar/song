@@ -4,7 +4,7 @@ import { DATA } from "./../../data/";
 
 const Detail = () => {
   let { id } = useParams();
-  let findpdt = DATA.find(function (x) {
+  let findpdt = DATA.find(function(x) {
     return x.id == id;
   });
 
@@ -28,19 +28,6 @@ const Detail = () => {
           {/* <div className="alert alert-warning">2초 이내 구매시 할인</div> */}
           {/* {close == true ? (
             <div className="alert alert-warning">2초 이내 구매시 할인</div>
-          ) : null} */}
-
-          {/* {close == true ? (
-            <div className="popup">
-              <div></div>
-              <button
-                onClick={() => {
-                  setClose(false);
-                }}
-              >
-                닫기
-              </button>
-            </div>
           ) : null} */}
 
           <img
