@@ -1,4 +1,13 @@
-.main-bg{
+.start {
+  opacity: 0;
+}
+
+.end {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+.main-bg {
   height: 300px;
   background-image: url(./../public/img/bg.png);
   background-size: contain;
@@ -6,10 +15,9 @@
 }
 
 .main-product {
-  
   display: flex;
   justify-content: space-between;
-  margin: 25px
+  margin: 25px;
 }
 
 .main-product > a {
@@ -18,27 +26,29 @@
   height: 250px;
 }
 
-a,a:hover, a:visited, a:active {
-  color:#000;
+a,
+a:hover,
+a:visited,
+a:active {
+  color: #000;
   text-decoration: none;
 }
 
-.main-product > a > img{
+.main-product > a > img {
   width: 80%;
 }
-.main-product > a > h4{
+.main-product > a > h4 {
   margin-top: 20px;
 }
-.main-product > a > p{
+.main-product > a > p {
   margin: 0;
 }
 
-.col-md-6>img{
+.col-md-6 > img {
   width: 100%;
 }
 
-
-.popup{
+.popup {
   position: fixed;
   width: 300px;
   height: 300px;

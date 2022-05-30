@@ -30,4 +30,7 @@ const Home = () => {
   );
 };
 
+function TabContent({ 탭 }) {
+  return <div>{<div>내용0</div>}</div>;
+}
 export default Home;
