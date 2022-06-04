@@ -7,7 +7,22 @@ let user = createSlice({
   // initialState: "값",
   name: "user",
   initialState: "kim",
+
+  /* 
+  state 수정하기
+  1. state 수정해주는 함수 만들기
+  2. 만든 함수 export 해야 함
+  3. 만든 함수 import 해서 사용
+  */
+
+  reducers: {
+    changeName(state) {
+      return "john " + state;
+    },
+  },
 });
+
+export let { changeName } = user.actions;
 
 let cart = createSlice({
   name: "cart",
