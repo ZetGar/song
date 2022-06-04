@@ -5,7 +5,21 @@ import { Nav } from "react-bootstrap";
 
 import { Context1 } from "./../../App.js";
 
+import { addItem } from "../../store";
+import { useDispatch } from "react-redux";
+
 const Detail = () => {
+  useEffect(() => {
+    console.log(findpdt.id);
+    let getItm = localStorage.getItem("watched");
+    getItm = JSON.parse(getItm);
+    getItm.push(findpdt.id);
+    getItm = new Set(getItm);
+    getItm = Array.from(getItm);
+
+    localStorage.setItem("watched", JSON.stringify(getItm));
+  }, []);
+
   let { 재고 } = useContext(Context1);
 
   let { id } = useParams();
@@ -35,6 +49,8 @@ const Detail = () => {
     };
   }, []);
 
+  let dispatch = useDispatch();
+
   return (
     <div className={`container start ${fade2}`}>
       <div className="row">
@@ -52,7 +68,12 @@ const Detail = () => {
           <h4 className="pt-5">{findpdt.title}</h4>
           <p>{findpdt.content}</p>
           <p>{findpdt.price}원</p>
-          <button className="btn btn-danger">주문하기</button>
+          <button
+            className="btn btn-danger"
+            onClick={dispatch(addItem({ id: 1, name: "Red Knit", count: 1 }))}
+          >
+            주문하기
+          </button>
         </div>
 
         <Nav fill variant="tabs" defaultActiveKey="link0">

@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import "./App.scss";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
@@ -12,6 +12,18 @@ import Cart from "./pages/Cart";
 export let Context1 = createContext();
 
 function App() {
+  let obj = { name: "kim" };
+  JSON.stringify(obj);
+  localStorage.setItem("data", JSON.stringify(obj));
+
+  let 꺼내기 = localStorage.getItem("data");
+  JSON.parse(꺼내기);
+  console.log(JSON.parse(꺼내기).name);
+
+  useEffect(() => {
+    localStorage.setItem("watched", JSON.stringify([]));
+  });
+
   let navigate = useNavigate();
   let [재고] = useState([10, 11, 12]);
 
