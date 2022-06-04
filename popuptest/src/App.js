@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createContext, useState } from "react";
 import "./App.scss";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
@@ -7,9 +7,13 @@ import Home from "./pages/Home";
 import Detail from "./pages/Detail";
 import Error from "./pages/Error";
 import About from "./pages/About";
+import Cart from "./pages/Cart";
+
+export let Context1 = createContext();
 
 function App() {
   let navigate = useNavigate();
+  let [재고] = useState([10, 11, 12]);
 
   return (
     <div className="App">
@@ -40,6 +44,14 @@ function App() {
               about
             </Nav.Link>
 
+            <Nav.Link
+              onClick={() => {
+                navigate("/cart");
+              }}
+            >
+              cart
+            </Nav.Link>
+
             {/* <Link to="/">Home</Link> */}
           </Nav>
         </Container>
@@ -48,7 +60,15 @@ function App() {
       <Routes>
         <Route path="*" element={<Error />} />
         <Route path="/" element={<Home />} />
-        <Route path="/detail/:id" element={<Detail />} />
+        <Route
+          path="/detail/:id"
+          element={
+            <Context1.Provider value={{ 재고 }}>
+              <Detail />
+            </Context1.Provider>
+          }
+        />
+        <Route path="/cart" element={<Cart />} />
 
         {/* nested routes + outlet */}
         <Route path="/about" element={<About />}>
