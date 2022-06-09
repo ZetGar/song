@@ -10,6 +10,7 @@ import { Navbar, Container, Nav } from "react-bootstrap";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 
 import Home from "./pages/Home";
+import New from "./pages/New";
 // import Detail from "./pages/Detail";
 // import Error from "./pages/Error";
 // import About from "./pages/About";
@@ -95,6 +96,14 @@ function App() {
               cart
             </Nav.Link>
 
+            <Nav.Link
+              onClick={() => {
+                navigate("/new");
+              }}
+            >
+              New
+            </Nav.Link>
+
             {/* <Nav.Link>
               {result.isLoading ? "로딩중" : result.data.name}
             </Nav.Link> */}
@@ -128,6 +137,7 @@ function App() {
             <Route path="member" element={<div>멤버임</div>} />
             <Route path="location" element={<div>위치정보임</div>} />
           </Route>
+          <Route path="/new" element={<New />} />
         </Routes>
       </Suspense>
     </div>

@@ -9,13 +9,14 @@ let Child = memo(function () {
   return <div>자식임</div>;
 });
 
-function 함수(){
-  return 반복문10억번 돌린 결과
-}
+// function 함수() {
+//   return <p>반복문10억번 돌린 결과</p>;
+// }
 
 const Cart = () => {
-
-  let result = useMemo(()=>{return 함수()},[state])
+  // let result = useMemo(() => {
+  //   return 함수();
+  // }, [state]);
 
   let cart = useSelector((state) => {
     // 모든 content
